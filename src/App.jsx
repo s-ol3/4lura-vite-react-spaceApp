@@ -6,7 +6,7 @@
 
 
 import styled from "styled-components"
-//import GlobalStyles from "./components/GlobalStyles"
+import GlobalStyles from "./components/GlobalStyles"
 
 
 const FondoGradiente = styled.div`
@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <FondoGradiente>
-        {/* <GlobalStyles /> */}
+        <GlobalStyles />
       </FondoGradiente>
 
 
