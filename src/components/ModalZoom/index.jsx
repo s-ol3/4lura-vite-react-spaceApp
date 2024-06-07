@@ -27,15 +27,13 @@ const DialogEstilizado = styled.dialog`
         }
     }
 `
-//esta foto es un objeto, cada objeto del fotos.json f
 const ModalZoom = ({ foto, alCerrar, alAlternarFavorito }) => {
 
     return <>
-        {foto && <>         {/* , si recibo una fotografía, esto se va a mostrar  < LO DE ''HTML''>, si no, no se va a mostrar nada directamente porque no recibo ningún tipo de foto. */}
+        {foto && <>
             <Overlay />
-            {/* codigo desde mozilla + '' Vamos a volver al index y vamos a hacer un truco técnico. Como open funciona con true o false y si recibimos una foto o enviamos una foto, vamos a enviar un objeto. Vamos a convertir este objeto, que puede ser nulo o puede ser un objeto en sí, lo vamos a convertir a un valor booleano. Vamos a escribir un operador not, otro operador not y vamos a pasarle la foto. Entonces estamos negando dos veces la foto. Si negamos una vez va a ser false, si lo negamos otra vez va a ser true y viceversa. Si recibimos algo por aquí lo transformamos en true o si no recibimos un nulo lo transformamos en false. Este es un pequeño recurso para convertir algún dato o un objeto, en este caso en un valor booleano, porque es lo que necesitamos pasarle a este atributo open'' */}
             <DialogEstilizado open={!!foto} onClose={alCerrar}>
-            <Imagen foto={foto} expandida={true} alAlternarFavorito={alAlternarFavorito}/>   {/*  Imagen por defecto recibe una propiedad que es expandida, que la tiene definida en false. Aquí la vamos a definir en true, porque es justamente lo que queremos, expandir nuestra imagen. Entonces, vamos a poner ahí y vamos a pasarle true. Y además recibe una foto, si no, no va a saber qué imagen tiene que renderizar. Entonces, vamos a ponerlo aquí delante y vamos a pasarle justamente la foto. Entonces le pasamos la foto, guardamos y veamos cómo queda. */}
+                <Imagen foto={foto} expandida={true} alAlternarFavorito={alAlternarFavorito}/>
                 <form method="dialog">
                     <BotonIcono formMethod="dialog">
                         <img src="/iconos/cerrar.png" alt="Icono de cerrar" />

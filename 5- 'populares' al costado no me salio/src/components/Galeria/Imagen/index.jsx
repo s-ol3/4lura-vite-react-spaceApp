@@ -1,3 +1,25 @@
+/* const Imagen = () => {      HASTA ACA TRAE SOLO EL NOMBRE DEL .PATH O .TITULO DESDE EL JSON DE IMAGENES
+
+    return <figure>
+        <img src="" alt="" />
+        <figcaption>
+            <h3>Titulo</h3>
+            <footer>
+                <h4>Fuente</h4>
+                <div>
+                    <button>Favorito</button>
+                    <button>Expandir</button>
+                </div>
+            </footer>
+        </figcaption>
+    </figure>
+}
+
+export default Imagen */
+
+
+
+
 import { styled } from "styled-components"
 import BotonIcono from "../../BotonIcono"
 const Figure = styled.figure`
@@ -35,9 +57,9 @@ const Pie = styled.footer`
     align-items: center;
 `
 
-const Imagen = ({ foto, expandida = false, alSolicitarZoom,alAlternarFavorito}) => {
+//true false cambia ancho de img 
+const Imagen = ({ foto, expandida = false, alSolicitarZoom}) => {
     
- const iconoFavorito= foto.favorita ? "/iconos/favorito-activo.png" :"/iconos/favorito.png"   
     
     return (
         <Figure $expandida={expandida} id={`foto-${foto.id}`}>
@@ -46,10 +68,10 @@ const Imagen = ({ foto, expandida = false, alSolicitarZoom,alAlternarFavorito}) 
                 <h3>{foto.titulo}</h3>
                 <Pie>
                     <h4>{foto.fuente}</h4>
-                    <BotonIcono onClick={()=>alAlternarFavorito(foto)}>
-                        <img src={iconoFavorito} alt="Icone de favorito" />
+                    <BotonIcono>
+                        <img src="/iconos/favorito.png" alt="Icone de favorito" />
                     </BotonIcono>
-                    {!expandida && <BotonIcono aria-hidden={expandida} onClick={()=>alSolicitarZoom(foto)}>
+                    {!expandida && <BotonIcono aria-hidden={expandida} onClick={()=>alSolicitarZoom(foto)}> {/*  donde tenemos el ícono que tiene el botón de expandir o la imagen de expandir y a continuación del área, vamos a poner lo siguiente. Vamos a hacer un evento, un clic y aquí vamos a llamar a una función anónima. Vamos a ejecutar una función y vamos a llamar alSolicitarZoom y le vamos a pasar una foto. Le pasamos esta foto que estamos trayendo aquí, al evento, a esta prop alSolicitarZoom. */}
                     <img src="/iconos/expandir.png" alt="Icono de expandir" />
                 </BotonIcono>}
                 </Pie>
