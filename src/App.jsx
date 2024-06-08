@@ -35,6 +35,8 @@ const App = () => {
   const [fotosDeGaleria, setFotosDeGaleria] = useState(fotos)
   const [fotoSeleccionada, setFotoSeleccionada] = useState(null)
 
+
+  //fav foto, heart ico
   const alAlternarFavorito = (foto) => {
 
     if (foto.id === fotoSeleccionada?.id) {
