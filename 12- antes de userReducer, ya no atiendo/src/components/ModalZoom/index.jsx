@@ -30,20 +30,19 @@ const DialogEstilizado = styled.dialog`
     }
 `
 const ModalZoom = () => {
-    const { state, dispatch } = useContext(GlobalContext);
+    const { fotoSeleccionada, alAlternarFavorito, setFotoSeleccionada } = useContext(GlobalContext);
     return <>
-        {state.fotoSeleccionada && <>
+        {fotoSeleccionada && <>
             <Overlay />
-            <DialogEstilizado open={!!state.fotoSeleccionada} onClose={() => dispatch({ type: 'SET_FOTO_SELECCIONADA', payload: null })}>
-                <Imagen foto={state.fotoSeleccionada} expandida={true} />
+            <DialogEstilizado open={!!fotoSeleccionada} onClose={() => setFotoSeleccionada(null)}>
+                <Imagen foto={fotoSeleccionada} expandida={true} alAlternarFavorito={alAlternarFavorito} />
                 <form method="dialog">
                     <BotonIcono formMethod="dialog">
                         <img src="/iconos/cerrar.png" alt="Icono de cerrar" />
                     </BotonIcono>
                 </form>
             </DialogEstilizado>
-        </>
-        }
+        </>}
 
     </>
 

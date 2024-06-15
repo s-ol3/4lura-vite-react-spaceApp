@@ -25,10 +25,10 @@ const ImagenesContainer = styled.section`
 
 const Galeria = () => {
 
-    const { state } = useContext(GlobalContext);
+    const { consulta, fotosDeGaleria, alAlternarFavorito, setFotoSeleccionada } = useContext(GlobalContext);
 
     return (
-        state.fotosDeGaleria.length == 0 ?
+        fotosDeGaleria.length == 0 ?
             <Cargando></Cargando> :
             <>
                 <Tag />
@@ -36,11 +36,13 @@ const Galeria = () => {
                     <SeccionFluida>
                         <Titulo>Navegue por la galería</Titulo>
                         <ImagenesContainer>
-                            {state.fotosDeGaleria.filter(foto => {
-                                return state.consulta == '' || foto.titulo.toLocaleLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "")
-                                    .includes(state.consulta.toLocaleLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, ""))
+                            {fotosDeGaleria.filter(foto => {
+                                return consulta == '' || foto.titulo.toLocaleLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "")
+                                    .includes(consulta.toLocaleLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, ""))
                             })
                                 .map(foto => <Imagen
+                                    alAlternarFavorito={alAlternarFavorito}
+                                    alSolicitarZoom={foto => setFotoSeleccionada(foto)}
                                     key={foto.id}
                                     foto={foto} />)
                             }

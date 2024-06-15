@@ -37,8 +37,11 @@ const App = () => {
   return (
     <>
       <FondoGradiente>
+        
         <GlobalStyles />
+
         <GlobalContextProvider>
+
           <AppContainer>
             <Cabecera />
             <MainContainer>
@@ -51,6 +54,7 @@ const App = () => {
           </AppContainer>
           <ModalZoom />
           <Pie />
+
         </GlobalContextProvider>
 
       </FondoGradiente>
